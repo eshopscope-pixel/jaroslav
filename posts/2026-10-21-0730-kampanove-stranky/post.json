@@ -1,0 +1,87 @@
+{
+  "id": "2026-10-21-0730-kampanove-stranky",
+  "template": "poster",
+  "palette": "riso",
+  "photoMode": "duo",
+  "issue": "007",
+  "label": "Kampaně",
+  "topic": "Vlastní stránka pro každou reklamní kampaň",
+  "pillar": "Trendy a nástroje",
+  "sources": [
+    "https://www.cmswire.com/digital-experience/webflow-launches-ai-campaign-builder-for-marketers/",
+    "https://webflow.com/blog/campaigns-launch",
+    "https://support.google.com/google-ads/answer/6167118"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "2026-10-21-0730-kampanove-stranky-1.jpg",
+      "title": "Reklama vede|na *úvodní*|stránku?",
+      "body": "Webflow právě spustil nástroj na stránky pro kampaně. Tady je, proč na tom záleží i tobě."
+    },
+    {
+      "type": "statement",
+      "text": "Úvodní stránka mluví o všem. *Člověk z reklamy chce vidět to, na co klikl.*"
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-21-0730-kampanove-stranky-3.jpg",
+      "num": "01",
+      "kicker": "Shoda",
+      "title": "Stejný slib|jako reklama",
+      "body": "Reklama nabízí byt 3+kk v Holešovicích? Stránka začne tímhle bytem, ne seznamem všech nabídek."
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-21-0730-kampanove-stranky-4.jpg",
+      "num": "02",
+      "kicker": "Výzva",
+      "title": "Jedno|tlačítko",
+      "body": "Prohlídka, konzultace, nebo nákup. Vyber jednu akci a schovej menu, které odvádí jinam."
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-21-0730-kampanove-stranky-5.jpg",
+      "num": "03",
+      "kicker": "Formulář",
+      "title": "Ptej se|jen na nutné",
+      "body": "Jméno a telefon nebo e-mail. Na další otázky je čas při prvním hovoru."
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-21-0730-kampanove-stranky-6.jpg",
+      "num": "04",
+      "kicker": "Mobil",
+      "title": "Testuj|v telefonu",
+      "body": "Reklamu z Instagramu člověk otevře v telefonu. Projdi stránku tam, kde ji uvidí klient."
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-21-0730-kampanove-stranky-7.jpg",
+      "num": "05",
+      "kicker": "Měření",
+      "title": "Každá kampaň|svou adresu",
+      "body": "Pak uvidíš, která reklama přivedla poptávky. Google Ads navíc hodnotí i kvalitu cílové stránky."
+    },
+    {
+      "type": "list",
+      "title": "Než spustíš|*reklamu*",
+      "items": [
+        "Stejný slib jako reklama",
+        "Jedno tlačítko",
+        "Krátký formulář",
+        "Test v telefonu",
+        "Vlastní adresa pro kampaň"
+      ]
+    },
+    {
+      "type": "cta",
+      "photo": "2026-10-21-0730-kampanove-stranky-9.jpg",
+      "title": "Ulož si|*to*",
+      "body": "Projdi seznam před další kampaní."
+    }
+  ],
+  "status": "draft",
+  "caption": "Platíš reklamu a lidi z ní posíláš na úvodní stránku? Tam se ztratí dřív, než najdou, na co klikli.\n\nWebflow 20. října spustil Campaigns, nástroj na stránky pro reklamní kampaně. Vlastní landing page ale zvládne i makléř, ateliér nebo menší e-shop.\n\nStránka pro kampaň slibuje to samé co reklama. Má jedno tlačítko, krátký formulář a funguje v telefonu.\n\nKaždá kampaň má vlastní adresu, takže víš, která reklama přivedla poptávky. Google Ads navíc u reklam hodnotí i kvalitu cílové stránky.\n\nUlož si to a projdi seznam před další kampaní.\n\n#landingpage #webdesign #onlinemarketing #reklama",
+  "alt": "Ruka drží telefon se složkou sociálních sítí v červeno-modrém risotisku. Nadpis: Reklama vede na úvodní stránku? Pod ním: Webflow právě spustil nástroj na stránky pro kampaně."
+}
