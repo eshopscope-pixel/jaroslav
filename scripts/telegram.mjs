@@ -32,7 +32,7 @@ export async function preview(dir) {
   await call("sendMediaGroup", form);
 
   const at = new Date(Date.now() + REVIEW_MIN * 60e3).toLocaleTimeString("cs-CZ", { timeZone: "Europe/Prague", hour: "2-digit", minute: "2-digit" });
-  await say(`Nový příspěvek: ${post.topic}\n\n${post.caption || "(bez popisku)"}\n\n— — —\nZveřejní se kolem ${at}. Když ho nechceš, odpověz STOP.`);
+  await say(`Jaroslav: nový příspěvek ke kontrole – ${post.topic}\n\n${post.caption || "(bez popisku)"}\n\n— — —\nZveřejní se kolem ${at}. Když ho nechceš, odpověz STOP.\n\nJaroslav Lejnosrk, EshopScope`);
 
   post.status = "previewed";
   post.previewAt = Math.floor(Date.now() / 1000);
