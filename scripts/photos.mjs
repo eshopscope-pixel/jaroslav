@@ -33,6 +33,12 @@ async function pexels() {
 async function unsplash() {
   if (!process.env.UNSPLASH_ACCESS_KEY) return [];
   const r = await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=portrait&per_page=8&content_filter=high`, { headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` } });
+  if (r.status === 401 || r.status === 403) {
+    // key revoked or blocked: tell Petr through Jaroslav so we can switch the photo source together
+    const { say } = await import("./telegram.mjs");
+    await say(`Jaroslav: Unsplash mi zablokoval přístup k fotkám (HTTP ${r.status}). Dnešní příspěvky vytvořím z knihovny, ale prosím, domluvme se na jiném zdroji fotek.`).catch(() => {});
+    return [];
+  }
   const j = await r.json();
   return (j.results || []).filter(p => !p.premium && !p.plus).map(p => ({ url: `${p.urls.raw}&w=1080&h=1350&fit=crop&crop=entropy&q=82&fm=jpg`, source: "unsplash", page: p.links.html, author: p.user?.name, download: p.links.download_location }));
 }
@@ -56,7 +62,9 @@ const browser = await puppeteer.launch({ args: ["--no-sandbox", "--allow-file-ac
 const page = await browser.newPage();
 await page.setViewport({ width: 1240, height: 820 });
 const cells = found.map((_, i) => `<div style="position:relative"><img src="file://${path.resolve(dir, `${i + 1}.jpg`)}" style="width:300px;height:375px;object-fit:cover;display:block"><b style="position:absolute;left:8px;top:6px;background:#000;color:#fff;font:700 28px sans-serif;padding:2px 10px">${i + 1}</b></div>`).join("");
-await page.setContent(`<body style="margin:0;background:#111;display:grid;grid-template-columns:repeat(4,300px);gap:10px;padding:10px">${cells}</body>`, { waitUntil: "load" });
+const sheetHtml = path.resolve(dir, "sheet.html");
+fs.writeFileSync(sheetHtml, `<body style="margin:0;background:#111;display:grid;grid-template-columns:repeat(4,300px);gap:10px;padding:10px">${cells}</body>`);
+await page.goto(`file://${sheetHtml}`, { waitUntil: "load" });
 await page.screenshot({ path: path.join(dir, "sheet.jpg"), type: "jpeg", quality: 80, fullPage: true });
 await browser.close();
 console.log(path.join(dir, "sheet.jpg"));
