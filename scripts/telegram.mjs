@@ -31,8 +31,14 @@ export async function preview(dir) {
   files.forEach((f, i) => form.append(`p${i}`, new Blob([fs.readFileSync(f)], { type: "image/jpeg" }), path.basename(f)));
   await call("sendMediaGroup", form);
 
-  const at = new Date(Date.now() + REVIEW_MIN * 60e3).toLocaleTimeString("cs-CZ", { timeZone: "Europe/Prague", hour: "2-digit", minute: "2-digit" });
-  await say(`Jaroslav: nový příspěvek ke kontrole – ${post.topic}\n\n${post.caption || "(bez popisku)"}\n\n— — —\nZveřejní se kolem ${at}. Když ho nechceš, odpověz STOP.\n\nJaroslav Lejnosrk, EshopScope`);
+  // next publish slot (Prague time) that leaves the full review window
+  const SLOTS = (process.env.PUBLISH_SLOTS || "9,12,18").split(",").map(Number);
+  const pragueHour = d => +d.toLocaleString("en-GB", { timeZone: "Europe/Prague", hour: "2-digit", hour12: false });
+  const earliest = new Date(Date.now() + REVIEW_MIN * 60e3);
+  const eh = pragueHour(earliest) + (earliest.getUTCMinutes() > 5 ? 1 : 0);
+  const slot = SLOTS.find(h => h >= eh);
+  const at = slot !== undefined ? `${slot}:00` : `zítra v ${SLOTS[0]}:00`;
+  await say(`Jaroslav: nový příspěvek ke kontrole – ${post.topic}\n\n${post.caption || "(bez popisku)"}\n\n— — —\nZveřejní se v ${at}. Když ho nechceš, odpověz STOP.\n\nJaroslav Lejnosrk, EshopScope`);
 
   post.status = "previewed";
   post.previewAt = Math.floor(Date.now() / 1000);
