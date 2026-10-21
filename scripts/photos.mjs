@@ -15,7 +15,10 @@ if (args[0] === "--take") {
   const src = path.join("assets/photos/cand", slug, `${n}.jpg`);
   const credits = JSON.parse(fs.readFileSync(path.join("assets/photos/cand", slug, "credits.json"), "utf8"));
   fs.copyFileSync(src, path.join("assets/photos", `${name}.jpg`));
-  fs.writeFileSync(path.join("assets/photos", `${name}.json`), JSON.stringify(credits[+n - 1], null, 2));
+  const c = credits[+n - 1];
+  fs.writeFileSync(path.join("assets/photos", `${name}.json`), JSON.stringify(c, null, 2));
+  // Unsplash guidelines: ping the download endpoint only for the photo actually used
+  if (c.download && process.env.UNSPLASH_ACCESS_KEY) await fetch(`${c.download}&client_id=${process.env.UNSPLASH_ACCESS_KEY}`).catch(() => {});
   console.log(`assets/photos/${name}.jpg`);
   process.exit(0);
 }
@@ -33,10 +36,15 @@ async function pexels() {
 async function unsplash() {
   if (!process.env.UNSPLASH_ACCESS_KEY) return [];
   const r = await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(q)}&orientation=portrait&per_page=8&content_filter=high`, { headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` } });
+  const left = r.headers.get("x-ratelimit-remaining");
+  if (r.status === 403 && left === "0") {
+    console.error("Unsplash hourly limit reached (50/h on the demo key) - reuse photos from assets/photos or try again next hour");
+    return [];
+  }
   if (r.status === 401 || r.status === 403) {
     // key revoked or blocked: tell Petr through Jaroslav so we can switch the photo source together
     const { say } = await import("./telegram.mjs");
-    await say(`Jaroslav: Unsplash mi zablokoval přístup k fotkám (HTTP ${r.status}). Dnešní příspěvky vytvořím z knihovny, ale prosím, domluvme se na jiném zdroji fotek.`).catch(() => {});
+    await say(`Jaroslav: Unsplash mi zablokoval přístup k fotkám (HTTP ${r.status}). Prosím, domluvme se na jiném zdroji fotek.`).catch(() => {});
     return [];
   }
   const j = await r.json();
@@ -51,8 +59,6 @@ fs.mkdirSync(dir, { recursive: true });
 for (const [i, p] of found.entries()) {
   const buf = Buffer.from(await (await fetch(p.url)).arrayBuffer());
   fs.writeFileSync(path.join(dir, `${i + 1}.jpg`), buf);
-  // Unsplash API guidelines ask to ping the download endpoint when a photo is used
-  if (p.download) fetch(`${p.download}&client_id=${process.env.UNSPLASH_ACCESS_KEY}`).catch(() => {});
 }
 fs.writeFileSync(path.join(dir, "credits.json"), JSON.stringify(found, null, 2));
 

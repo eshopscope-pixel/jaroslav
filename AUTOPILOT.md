@@ -46,6 +46,7 @@ Nejdřív spusť i režim PUBLISH (dožene zpožděné příspěvky). Pak vytvo�
    node scripts/photos.mjs --take "<slug>" <číslo> <post-id>-<n>
    ```
    Když nic nesedí, zkus jiný dotaz. Vždy s „aesthetic“ na konci.
+   **Limit:** klíč Unsplash má 50 požadavků za hodinu a běží tři příspěvky denně. Na jeden příspěvek udělej nejvýš 8 hledání. Když hledání vrátí „hourly limit reached“, použij vhodnou fotku, která už je v `assets/photos/` a nebyla v posledních 60 dnech, a pokračuj. Kvůli limitu příspěvek neruš.
 5. **Vizuál.** Šablona `poster` (hlavní) nebo `editorial`. **Střídej** podle referencí v `references/`:
    - palety `riso`, `lime`, `orange`; režim fotek `duo` (risotisk) nebo `natural`;
    - typy slidů `cover`, `statement`, `section`, `code`, `list`, `cta` skládej pokaždé trochu jinak.
