@@ -2,3 +2,4 @@ node_modules/
 .env
 assets/photos/cand/
 .DS_Store
+cloud-env.txt
