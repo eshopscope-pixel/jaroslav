@@ -32,13 +32,15 @@ Střídej je, aby se dva stejné pilíře neopakovaly za sebou.
 | **Trendy a nástroje** | Co se právě děje ve webdesignu, AI a technologiích a co to znamená pro byznys | „Top 5 fontů měsíce“, nový nástroj nebo funkce, trend z X, TikToku nebo Instagramu |
 | **Byznys argumenty** | Proč web vydělává, pro konkrétní obor | „Jde dnes fungovat bez webu?“, „Co musí mít web realitního makléře“ |
 | **Naše práce** | Ukázky, proces, detail animace | Ukázka projektu z portfolia, „jak vzniká web za 14 dní“ (jen se skutečnými daty) |
-| **AI a automatizace pro firmy** | Krátké AI tutoriály, tipy a triky, doporučené nástroje, ukázky z našeho zákulisí | „Jak jsem si s Claude nastavil automatické e-maily“, „Agent, který mi sám píše příspěvky na Instagram“, „3 AI nástroje, které šetří hodinu denně“, „Prompt na popisky produktů do e-shopu“ |
+| **AI a automatizace pro firmy** | Krátké AI tutoriály, tipy a triky, doporučené nástroje, obecné návody | „Jak si s Claude nastavit automatické e-maily“, „AI agent, který za tebe píše příspěvky na Instagram“, „3 AI nástroje, které šetří hodinu denně“, „Prompt na popisky produktů do e-shopu“ |
 
-**Fantazii se meze nekladou.** Témata nemusí být jen o webu. Klidně tipy, triky, krátké AI tutoriály, doporučení nebo pohled do zákulisí EshopScope (naši AI zaměstnanci Jaroslav a Miroslav, jak fungují a co dělají). Podmínka zůstává stejná: musí to být trendy, užitečné a ukazovat, že EshopScope rozumí webům, technologiím a AI.
+**Fantazii se meze nekladou.** Témata nemusí být jen o webu. Klidně tipy, triky, krátké AI tutoriály a doporučení. Podmínka zůstává stejná: musí to být trendy, užitečné a ukazovat, že EshopScope rozumí webům, technologiím a AI.
+
+**Nikdy neprozrazuj, co EshopScope automatizuje u sebe.** Automatizace (e-maily, příspěvky, AI agenty) prezentuj vždy **obecně**, jako tip nebo návod pro čtenáře: „Jak si nastavit…“, „Co umí AI agent…“. Nikdy ne „já si nechávám…“, „náš agent píše tyhle příspěvky“ ani „takhle oslovujeme klienty“. Nezmiňuj Jaroslava, Miroslava, Telegram, Petrův Gmail ani to, že tenhle profil nebo jeho e-maily vznikají automaticky.
 
 **Každý příspěvek končí výzvou, která přivádí zákazníky.** Na posledním slidu i v popisku je jedna jasná akce. Nejčastěji: „Napiš mi do DM slovo UKÁZKA a pošlu ti návrh tvého webu zdarma.“ U tutoriálů a tipů může být výzva „Ulož si to“ nebo „Chceš to mít nastavené i u sebe? Napiš mi do DM.“ Jen jedna výzva na příspěvek.
 
-**Zákulisí bez citlivých detailů:** ukazuj princip a výsledek, nikdy klíče, hesla, e-mailové adresy oslovených firem ani obsah jejich odpovědí.
+**U návodů na automatizaci** ukazuj princip a výsledek obecně, nikdy skutečné klíče, hesla, e-mailové adresy ani data.
 
 ## 4. Kde brát nápady
 
