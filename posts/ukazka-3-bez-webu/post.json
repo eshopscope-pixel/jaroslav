@@ -1,0 +1,74 @@
+{
+  "id": "ukazka-3-bez-webu",
+  "template": "editorial",
+  "pillar": "Byznys argumenty",
+  "label": "Byznys",
+  "topicShort": "Firma bez webu",
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "photo-1719962208569-126edbaaff83.jpg",
+      "title": "Jde to|*bez webu?*",
+      "body": "Krátká odpověď: jde. Tady je, o co přicházíš."
+    },
+    {
+      "type": "statement",
+      "photo": "photo-1590577086473-da330da9d7a1.jpg",
+      "text": "Klient tě najde přes doporučení. *Pak si tvoje jméno zadá do Googlu.*"
+    },
+    {
+      "type": "section",
+      "photo": "photo-1555663173-830f65a7329a.jpg",
+      "tag": "01",
+      "title": "Instagram|ti nepatří",
+      "body": "Profil může ztratit dosah nebo zmizet. Web a doména zůstanou tvoje."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1529790017476-1da550f3273a.jpg",
+      "tag": "02",
+      "title": "Google tě|nenajde",
+      "body": "Lidé hledají služby ve vyhledávači. Bez webu se ve výsledcích skoro neukážeš."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1687293233211-6b0cc3beba70.jpg",
+      "tag": "03",
+      "title": "Působíš menší,|než jsi",
+      "body": "Bez webu i zavedená firma působí jako začátečník."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1719057572864-e61f5204f2ee.jpg",
+      "tag": "04",
+      "title": "Přicházíš|o večerní|poptávky",
+      "body": "Web s formulářem sbírá poptávky i večer a o víkendu."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1724688078741-6d89e587e809.jpg",
+      "tag": "05",
+      "title": "Nemáš kde|ukázat práci",
+      "body": "Projekty, reference a ceník na jednom místě. Klient nemusí psát a čekat na odpověď."
+    },
+    {
+      "type": "list",
+      "title": "Co ti web|*dá navíc*",
+      "items": [
+        "Profil, který ti patří",
+        "Místo ve výsledcích Googlu",
+        "Důvěryhodný první dojem",
+        "Poptávky i mimo pracovní dobu",
+        "Místo pro tvou práci"
+      ]
+    },
+    {
+      "type": "cta",
+      "photo": "photo-1591931681345-16b532514cde.jpg",
+      "title": "Napiš mi|do DM slovo|*UKÁZKA*",
+      "body": "Pošlu ti návrh tvého webu zdarma."
+    }
+  ],
+  "topic": "Byznys",
+  "status": "sample"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "ukazka-6-claude",
+  "template": "poster",
+  "palette": "orange",
+  "photoMode": "natural",
+  "issue": "006",
+  "label": "Návod",
+  "pillar": "Návody",
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "photo-1519408469771-2586093c3f14.jpg",
+      "title": "Animace|s *Claude*|za 5 minut",
+      "body": "Bez programování. Stačí popsat, co chceš."
+    },
+    {
+      "type": "statement",
+      "text": "Nemusíš umět kódovat. *Musíš umět popsat, co chceš vidět.*"
+    },
+    {
+      "type": "section",
+      "photo": "photo-1605012555174-f01851e9410d.jpg",
+      "num": "01",
+      "kicker": "Krok",
+      "title": "Popiš|animaci",
+      "body": "Co se má hýbat, kdy a jak rychle. Čím přesněji, tím lepší výsledek."
+    },
+    {
+      "type": "code",
+      "title": "Zadej|prompt",
+      "label": "Krok 02 · Prompt",
+      "code": "Vytvoř tlačítko v HTML a CSS. Při najetí myší se jemně zvětší o 5 % a změní barvu na oranžovou. Animace 200 ms.",
+      "body": "Zkopíruj, uprav barvy a pošli do Claude."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1786521642901-17901b1f5f1d.jpg",
+      "num": "03",
+      "kicker": "Krok",
+      "title": "Vyzkoušej|náhled",
+      "body": "Claude výsledek rovnou zobrazí. Když nesedí, napiš, co změnit."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1541506618330-7c369fc759b5.jpg",
+      "num": "04",
+      "kicker": "Krok",
+      "title": "Vlož kód|na web",
+      "body": "Framer, Webflow i WordPress umí vložit vlastní HTML. Hledej blok Embed nebo HTML."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1615006801329-249dcef6aa0f.jpg",
+      "num": "05",
+      "kicker": "Tip",
+      "title": "Otestuj|na mobilu",
+      "body": "Co na počítači vypadá skvěle, se na telefonu může sekat."
+    },
+    {
+      "type": "list",
+      "title": "Celý|*postup*",
+      "items": [
+        "Popiš animaci",
+        "Zadej prompt",
+        "Vyzkoušej náhled",
+        "Vlož kód na web",
+        "Otestuj na mobilu"
+      ]
+    },
+    {
+      "type": "cta",
+      "photo": "photo-1664817550935-79d3b6255a82.jpg",
+      "title": "Napiš mi|*UKÁZKA*",
+      "body": "Do DM. Pošlu ti návrh tvého webu zdarma."
+    }
+  ],
+  "topic": "Návod",
+  "status": "sample"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "ukazka-4-chatgpt",
+  "template": "poster",
+  "palette": "riso",
+  "photoMode": "duo",
+  "issue": "004",
+  "label": "AI vyhledávání",
+  "pillar": "Trendy a nástroje",
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "photo-1750096319146-6310519b5af2.jpg",
+      "title": "Najde tě|*ChatGPT?*",
+      "body": "Lidé se stále častěji ptají AI místo Googlu. Tady je, jak se dostat do odpovědi."
+    },
+    {
+      "type": "statement",
+      "text": "„Doporuč mi architekta v Brně.“ *Co odpoví ChatGPT, záleží i na tvém webu.*"
+    },
+    {
+      "type": "section",
+      "photo": "photo-1592136669401-d08f5d9e2e96.jpg",
+      "num": "01",
+      "kicker": "Text",
+      "title": "Napiš jasně,|co děláš",
+      "body": "Služby, obor a město přímo v textu webu. AI čte text, ne tvoje logo."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1559854036-2409f22a918a.jpg",
+      "num": "02",
+      "kicker": "Struktura",
+      "title": "Stránka pro|každou službu",
+      "body": "Jedna služba, jedna stránka. Snáz ji najde Google i AI."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1606595894604-ddc3fa2fabef.jpg",
+      "num": "03",
+      "kicker": "Obsah",
+      "title": "Časté otázky|na webu",
+      "body": "Sekce FAQ odpovídá tak, jak se lidé ptají. Cena, termíny, postup."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1777923311874-3718cb98fb5d.jpg",
+      "num": "04",
+      "kicker": "Důvěra",
+      "title": "Recenze|mimo web",
+      "body": "Google, Firmy.cz a další portály. Na tom, co o tobě píšou ostatní, záleží."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1731839329389-906c44fa1328.jpg",
+      "num": "05",
+      "kicker": "Technika",
+      "title": "Strukturovaná|data",
+      "body": "Kód schema.org řekne vyhledávačům, kdo jsi, kde sídlíš a co nabízíš."
+    },
+    {
+      "type": "list",
+      "title": "Co|*zkontrolovat*",
+      "items": [
+        "Jasný text o službách",
+        "Stránka pro každou službu",
+        "Sekce častých otázek",
+        "Recenze na portálech",
+        "Strukturovaná data"
+      ]
+    },
+    {
+      "type": "cta",
+      "photo": "photo-1618166546971-79b09d64e08c.jpg",
+      "title": "Ulož si|*to*"
+    }
+  ],
+  "topic": "AI vyhledávání",
+  "status": "sample"
+}

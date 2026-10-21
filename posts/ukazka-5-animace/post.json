@@ -1,0 +1,76 @@
+{
+  "id": "ukazka-5-animace",
+  "template": "poster",
+  "palette": "lime",
+  "photoMode": "natural",
+  "issue": "005",
+  "label": "Animace",
+  "pillar": "Chyby a opravy",
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "photo-1759674861540-afed9f86f94a.jpg",
+      "title": "Animace|*na webu*",
+      "body": "Které pomáhají prodávat a které klienta jen zdržují."
+    },
+    {
+      "type": "statement",
+      "text": "Dobrá animace ukazuje, co se děje. *Špatná jen předvádí, že se něco hýbe.*"
+    },
+    {
+      "type": "section",
+      "photo": "photo-1785767429545-2f44b8fd6a1c.jpg",
+      "num": "01",
+      "kicker": "Ano",
+      "title": "Reakce|tlačítka",
+      "body": "Jemná změna při najetí nebo kliknutí. Uživatel ví, že web reaguje."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1710294433504-84546e172708.jpg",
+      "num": "02",
+      "kicker": "Ano",
+      "title": "Postupné|odhalení",
+      "body": "Obsah se objeví při scrollu. Čtenář se soustředí na jednu věc."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1661929437598-fd2845042523.jpg",
+      "num": "03",
+      "kicker": "Ano",
+      "title": "Produkt|v pohybu",
+      "body": "Krátká smyčka ukáže produkt líp než tři odstavce textu."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1603788844854-356134fe926c.jpg",
+      "num": "04",
+      "kicker": "Ne",
+      "title": "Dlouhý|preloader",
+      "body": "Pět vteřin čekání na logo. Klient odchází dřív, než web uvidí."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1768521588351-c46a56ed1613.jpg",
+      "num": "05",
+      "kicker": "Ne",
+      "title": "Všechno|se hýbe",
+      "body": "Když se hýbe všechno, nevynikne nic. A na mobilu se web seká."
+    },
+    {
+      "type": "code",
+      "title": "Respektuj|vypnuté animace",
+      "label": "CSS",
+      "code": "@media (prefers-reduced-motion: reduce) { * { animation: none; } }",
+      "body": "Někdo má v telefonu animace vypnuté. Web by to měl poznat a zklidnit se."
+    },
+    {
+      "type": "cta",
+      "photo": "photo-1765779038142-054a9f8c2268.jpg",
+      "title": "Pošli to|*někomu*",
+      "body": "Kdo právě řeší nový web."
+    }
+  ],
+  "topic": "Animace",
+  "status": "sample"
+}

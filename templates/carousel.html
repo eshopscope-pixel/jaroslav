@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>EshopScope carousel</title>
+<style>
+  @font-face { font-family: "Inter"; font-weight: 100 900; src: url("../fonts/Inter-var-latin-ext.woff2") format("woff2");
+               unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Inter"; font-weight: 100 900; src: url("../fonts/Inter-var-latin.woff2") format("woff2");
+               unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+  :root {
+    --bg: #FFFFFF;
+    --text: #17130F;
+    --muted: #9A9088;
+    --line: rgba(23,19,15,.12);
+    --orange: #FF6A1A;
+    --amber: #FFA552;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--bg); }
+  #root { position: fixed; inset: 0; }
+
+  .slide {
+    position: relative; width: 1080px; height: 1350px; overflow: hidden;
+    display: flex; flex-direction: column;
+    padding: 120px 110px 0;
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    background: var(--bg);
+  }
+
+  /* film grain over everything */
+  .slide::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 5;
+    opacity: .035; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* soft orange light */
+  .glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+  .slide > *:not(.glow) { position: relative; z-index: 1; }
+
+  .h { font-weight: 300; line-height: 1.04; letter-spacing: -0.045em; font-variation-settings: "opsz" 32; }
+  .s { color: var(--muted); }
+  .ln { display: block; }
+
+  .tag { display: flex; gap: 28px; margin-bottom: 44px; font-size: 26px; color: var(--muted); letter-spacing: .01em; }
+  .tag b { font-weight: 400; color: var(--text); }
+
+  .title { font-size: 80px; }
+  .body { letter-spacing: -0.01em; text-wrap: balance; margin-top: 34px; font-size: 32px; line-height: 1.45; color: var(--muted); max-width: 780px; }
+
+  .stage { flex: 1; display: flex; align-items: center; justify-content: center; padding-bottom: 140px; }
+
+  .shot { position: relative; width: 860px; border-radius: 14px; background-repeat: no-repeat;
+          box-shadow: 0 40px 110px rgba(255,106,26,.28), 0 0 0 1px rgba(23,19,15,.08); }
+
+  .foot { position: absolute !important; left: 110px; right: 110px; bottom: 64px;
+          display: flex; justify-content: space-between; font-size: 24px; color: #6E655D; letter-spacing: .02em; }
+  .logo { position: relative; display: block; width: 258px; height: 19px; overflow: hidden; }
+  .logo img { filter: brightness(0); position: absolute; left: -15.4px; top: -39.2px; width: 288px; height: 96px; }
+  .foot > span:last-child { line-height: 19px; }
+
+  /* cover */
+  .cover .title { font-size: 112px; }
+  .cover .body { font-size: 36px; margin-top: 44px; }
+  .cover .shot { position: absolute; left: 230px; top: 760px; width: 960px; }
+  .cover .fade { position: absolute; left: 0; right: 0; bottom: 0; height: 300px; z-index: 2;
+                 background: linear-gradient(to top, #fff 30%, rgba(255,255,255,0)); }
+  .cover .foot { z-index: 3; }
+
+  /* statement + cta */
+  .big { margin: auto 0; font-size: 92px; }
+  .big.long { font-size: 74px; line-height: 1.1; }
+
+  /* list */
+  .list { margin-top: 90px; border-top: 1px solid var(--line); }
+  .row { display: flex; align-items: baseline; gap: 40px; padding: 38px 0; border-bottom: 1px solid var(--line); }
+  .row i { font-style: normal; font-size: 26px; color: var(--muted); width: 40px; }
+  .row p { font-weight: 300; font-size: 44px; letter-spacing: -0.035em; font-variation-settings: "opsz" 32; }
+  .row .chk { margin-left: auto; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid rgba(23,19,15,.4); align-self: center; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  // window.POST is injected by scripts/render.mjs; ?s=N picks the slide (1-based)
+  const SHOTS = "../assets/screenshots/";
+  const IMG_W = 2880;
+  const post = window.POST;
+  const n = +(new URLSearchParams(location.search).get("s") || 1);
+  const slide = post.slides[n - 1];
+  const total = post.slides.length;
+
+  const esc = t => t.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  // markup: "|" = line break, *text* = muted grey
+  const md = t => esc(t || "").replace(/\*([^*]+)\*/g, '<span class="s">$1</span>').split("|").join("<br>");
+  const pad = i => String(i).padStart(2, "0");
+
+  const glow = (css, color, op) => `<div class="glow" style="${css};background:var(--${color});opacity:${op}"></div>`;
+  const shot = s => s ? `<div class="shot" data-crop="${s.file} ${s.crop.join(" ")}"></div>` : "";
+  const foot = `<div class="foot"><span class="logo"><img src="../assets/logo-eshopscope-white.webp" alt="EshopScope"></span><span>${pad(n)} / ${pad(total)}</span></div>`;
+
+  const T = {
+    cover: s => `
+      ${glow("width:900px;height:700px;right:-300px;bottom:-200px", "orange", .6)}
+      ${glow("width:420px;height:320px;right:40px;bottom:160px", "amber", .28)}
+      <h1 class="h title">${md(s.title)}</h1>
+      ${s.body ? `<p class="body">${md(s.body)}</p>` : ""}
+      ${shot(s.shot)}${s.shot ? '<div class="fade"></div>' : ""}`,
+    statement: s => `
+      ${glow("width:760px;height:300px;left:160px;bottom:-120px", "orange", .64)}
+      <h2 class="h big ${s.text.length > 90 ? "long" : ""}">${md(s.text)}</h2>`,
+    section: s => `
+      ${glow(s.shot ? "width:820px;height:420px;left:130px;bottom:140px" : "width:700px;height:500px;right:-260px;bottom:-160px", "orange", s.shot ? .36 : .5)}
+      ${s.tag ? `<div class="tag"><b>${esc(s.tag[0])}</b>${esc(s.tag[1])}</div>` : ""}
+      <h2 class="h title">${md(s.title)}</h2>
+      ${s.body ? `<p class="body">${md(s.body)}</p>` : ""}
+      ${s.shot ? `<div class="stage">${shot(s.shot)}</div>` : ""}`,
+    list: s => `
+      ${glow("width:700px;height:500px;right:-260px;top:-180px", "orange", .48)}
+      <h2 class="h title">${md(s.title)}</h2>
+      <div class="list">${s.items.map((it, i) => `<div class="row"><i>${pad(i + 1)}</i><p>${md(it)}</p><em class="chk"></em></div>`).join("")}</div>`,
+    cta: s => `
+      ${glow("width:1000px;height:700px;left:40px;top:980px", "orange", .6)}
+      ${glow("width:380px;height:200px;left:350px;top:1180px", "amber", .32)}
+      <h2 class="h big">${md(s.text)}</h2>`,
+  };
+
+  const el = document.createElement("section");
+  el.className = "slide " + slide.type;
+  el.innerHTML = T[slide.type](slide) + foot;
+  document.getElementById("root").appendChild(el);
+
+  // optical left alignment: cancel each line's left side bearing so big and small type share one edge
+  document.fonts.ready.then(() => {
+    const ctx = document.createElement("canvas").getContext("2d");
+    el.querySelectorAll(".h, .body, .row p").forEach(t => {
+      t.innerHTML = t.innerHTML.split(/<br\s*\/?>/i).map(l => `<span class="ln">${l || "&nbsp;"}</span>`).join("");
+      t.querySelectorAll(".ln").forEach(ln => {
+        const walker = document.createTreeWalker(ln, NodeFilter.SHOW_TEXT);
+        let node; while ((node = walker.nextNode()) && !node.textContent.trim());
+        if (!node) return;
+        const cs = getComputedStyle(node.parentElement);
+        ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+        ln.style.marginLeft = ctx.measureText(node.textContent.trim()[0]).actualBoundingBoxLeft + "px";
+      });
+    });
+
+    el.querySelectorAll(".shot").forEach(s => {
+      const [file, x, y, w, h] = s.dataset.crop.split(" ").map((v, i) => i ? +v : v);
+      const k = parseFloat(getComputedStyle(s).width) / w;
+      s.style.height = h * k + "px";
+      s.style.backgroundImage = `url("${SHOTS}${file}")`;
+      s.style.backgroundSize = IMG_W * k + "px auto";
+      s.style.backgroundPosition = `${-x * k}px ${-y * k}px`;
+    });
+
+    if (slide.y) el.querySelector(".h, .big").style.transform = `translateY(${slide.y})`;
+    document.body.dataset.ready = "1";
+  });
+</script>
+</body>
+</html>

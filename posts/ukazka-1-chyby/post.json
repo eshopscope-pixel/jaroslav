@@ -1,0 +1,73 @@
+{
+  "id": "ukazka-1-chyby",
+  "template": "editorial",
+  "pillar": "Chyby a opravy",
+  "label": "UX chyby",
+  "topicShort": "Chyby na webu",
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "photo-1764452008254-eed469a4fad3.jpg",
+      "title": "5 chyb,|kvůli kterým|klient *odejde*",
+      "body": "Nejčastější chyby webů a jak je opravit."
+    },
+    {
+      "type": "statement",
+      "photo": "photo-1553676517-2cebdeff6e4f.jpg",
+      "text": "Klient na tvůj web přijde z doporučení nebo z Googlu. *Když se v něm do pár vteřin nevyzná, zavře ho.*"
+    },
+    {
+      "type": "section",
+      "photo": "photo-1471897488648-5eae4ac6686b.jpg",
+      "tag": "Chyba 01",
+      "title": "Není jasné,|co děláš",
+      "body": "Úvod říká „Vítejte na našem webu“. Napiš místo toho, co děláš, pro koho a kde."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1637772806703-2b9f6a3b1196.jpg",
+      "tag": "Chyba 02",
+      "title": "Na mobilu|se rozpadá",
+      "body": "Spousta lidí tě poprvé uvidí na telefonu. Každou stránku zkontroluj i na mobilu."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1660728800047-c172f5a57014.jpg",
+      "tag": "Chyba 03",
+      "title": "Načítá se|moc dlouho",
+      "body": "Většinou za to můžou velké fotky. Zmenši je a ulož ve formátu WebP."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1605160418914-3226a53574d5.jpg",
+      "tag": "Chyba 04",
+      "title": "Kontakt je|schovaný",
+      "body": "Telefon a tlačítko na kontakt patří do hlavičky. Na každé stránce."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1496865534669-25ec2a3a0fd3.jpg",
+      "tag": "Chyba 05",
+      "title": "Chybí|reference",
+      "body": "Klient chce vidět, že už jsi to dělal. Ukaž projekty a recenze se jménem."
+    },
+    {
+      "type": "list",
+      "title": "Odškrtej si,|co máš *hotové*",
+      "items": [
+        "Jasné úvodní sdělení",
+        "Web funguje na mobilu",
+        "Rychlé načítání",
+        "Kontakt v hlavičce",
+        "Reference a recenze"
+      ]
+    },
+    {
+      "type": "cta",
+      "photo": "photo-1617975178139-4b9f9260a5f6.jpg",
+      "title": "Ulož si to|na příští|*kontrolu webu*"
+    }
+  ],
+  "topic": "UX chyby",
+  "status": "sample"
+}

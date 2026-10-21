@@ -1,0 +1,81 @@
+{
+  "id": "ukazka-2-fonty",
+  "template": "editorial",
+  "pillar": "Trendy a nástroje",
+  "label": "Typografie",
+  "topicShort": "Fonty pro web",
+  "sources": [
+    "https://fonts.google.com/specimen/Instrument+Serif",
+    "https://fonts.google.com/specimen/Inter",
+    "https://fonts.google.com/specimen/Bricolage+Grotesque",
+    "https://fonts.google.com/specimen/Space+Grotesk",
+    "https://fonts.google.com/specimen/Geist"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "photo-1533226458520-6f71cffeaa6a.jpg",
+      "title": "5 fontů|pro *prémiový*|web",
+      "body": "Všechny najdeš zdarma na Google Fonts."
+    },
+    {
+      "type": "statement",
+      "photo": "photo-1778167093244-33d90e4f76c2.jpg",
+      "text": "Písmo klient vnímá dřív, než přečte první větu. *Levně působící písmo ubere na důvěře i dobré službě.*"
+    },
+    {
+      "type": "font",
+      "photo": "photo-1696238378039-821fc376ebd4.jpg",
+      "family": "Instrument Serif",
+      "style": "font-style:italic;font-weight:400",
+      "tag": "01 · Patkové",
+      "body": "Elegantní písmo na velké nadpisy. Sedí ateliérům, architektům a umělcům."
+    },
+    {
+      "type": "font",
+      "photo": "photo-1587522705669-61de54c723bf.jpg",
+      "family": "Inter",
+      "style": "font-weight:500",
+      "tag": "02 · Bezpatkové",
+      "body": "Neutrální a čitelné v každé velikosti. Spolehlivá volba na texty i rozhraní."
+    },
+    {
+      "type": "font",
+      "photo": "photo-1742440711413-da7afb0f4930.jpg",
+      "family": "Bricolage Grotesque",
+      "style": "font-weight:700",
+      "tag": "03 · Bezpatkové s charakterem",
+      "body": "Výrazné nadpisy pro značky, které nechtějí působit korporátně."
+    },
+    {
+      "type": "font",
+      "photo": "photo-1520583457224-aee11bad5112.jpg",
+      "family": "Space Grotesk",
+      "style": "font-weight:500",
+      "tag": "04 · Technické",
+      "body": "Moderní, lehce technický vzhled. Hodí se pro tech firmy a fintech."
+    },
+    {
+      "type": "font",
+      "photo": "photo-1763046289892-857b83dc070f.jpg",
+      "family": "Geist",
+      "style": "font-weight:500",
+      "tag": "05 · Bezpatkové",
+      "body": "Čisté písmo od firmy Vercel. Dobře se kombinuje s patkovým nadpisem."
+    },
+    {
+      "type": "section",
+      "photo": "photo-1611269154421-4e27233ac5c7.jpg",
+      "tag": "Tip",
+      "title": "Stačí|dvě písma",
+      "body": "Jedno na nadpisy, druhé na text. Třeba Instrument Serif a Inter."
+    },
+    {
+      "type": "cta",
+      "photo": "photo-1758972581195-c27b9d3b1c56.jpg",
+      "title": "Pošli to|někomu, kdo|potřebuje|*nový web*"
+    }
+  ],
+  "topic": "Typografie",
+  "status": "sample"
+}

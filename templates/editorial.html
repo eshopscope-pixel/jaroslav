@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>EshopScope editorial</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+  :root {
+    --ink: #0B0A09;
+    --paper: #F4F1EC;
+    --orange: #FF6A1A;
+    --soft: rgba(244,241,236,.78);
+    --m: 96px;               /* one left edge for everything */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--ink); }
+  #root { position: fixed; inset: 0; }
+
+  .slide { position: absolute; inset: 0; overflow: hidden; color: var(--paper);
+           font-family: "Inter", sans-serif; background: var(--ink); }
+
+  /* photo, graded to one look: slightly desaturated, warm, darkened toward the text */
+  .ph { position: absolute; inset: 0; background-size: cover; background-position: center;
+        filter: saturate(.8) contrast(1.06) brightness(.9); }
+  .tint { position: absolute; inset: 0; background: rgba(255,106,26,.16); mix-blend-mode: soft-light; }
+  .shade { position: absolute; inset: 0;
+           background: linear-gradient(to top, rgba(11,10,9,.94) 0%, rgba(11,10,9,.72) 38%, rgba(11,10,9,.08) 72%, rgba(11,10,9,.25) 100%); }
+  .shade.full { background: rgba(11,10,9,.6); }
+
+  /* grain */
+  .slide::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 9; opacity: .1; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+
+  .top { position: absolute; left: var(--m); right: var(--m); top: 72px; z-index: 3;
+         display: flex; justify-content: space-between; align-items: center; font-size: 22px; letter-spacing: .02em; }
+  .logo { position: relative; display: block; width: 243px; height: 17px; overflow: hidden; }
+  .logo img { position: absolute; left: -14.55px; top: -37px; width: 272px; height: 90.7px; }
+  .dark .logo img { filter: brightness(0); }
+
+  .content { position: absolute; left: var(--m); right: var(--m); bottom: 190px; z-index: 3; }
+  .content.mid { top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; }
+
+  .h { font-weight: 800; text-transform: uppercase; letter-spacing: -0.045em; line-height: 1.04; font-size: 104px; }
+  .h em, .st em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; text-transform: none;
+                  letter-spacing: -0.01em; font-size: 1.14em; line-height: .8; }
+  .h.sm { font-size: 84px; }
+  .cover .h { line-height: 1.1; }
+  .ln { display: block; }
+
+  .tag { font-size: 26px; font-weight: 600; color: var(--orange); letter-spacing: .04em; margin-bottom: 30px; }
+  .body { margin-top: 34px; font-size: 32px; line-height: 1.42; color: var(--soft); max-width: 800px; text-wrap: pretty; }
+
+  .st { font-weight: 500; font-size: 70px; line-height: 1.06; letter-spacing: -0.035em; text-wrap: pretty; }
+  .st em { font-size: 1.12em; }
+
+  .foot { position: absolute; left: var(--m); right: var(--m); bottom: 64px; z-index: 3;
+          display: grid; grid-template-columns: 1fr 1fr auto; font-size: 20px; line-height: 1.35; color: rgba(244,241,236,.6); }
+  .foot b { display: block; font-weight: 500; color: var(--paper); }
+  .foot .n { align-self: end; color: var(--paper); font-weight: 500; font-size: 22px; }
+
+  /* font specimen */
+  .spec { position: absolute; left: var(--m); right: var(--m); top: 200px; z-index: 3; }
+  .spec .aa { font-size: 330px; line-height: .9; letter-spacing: -0.03em; }
+  .spec .meta { margin-top: 26px; font-size: 24px; color: var(--orange); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+
+  /* list on solid orange */
+  .slide.list { background: var(--orange); color: var(--ink); }
+  .slide.list .foot, .slide.list .foot b, .slide.list .foot .n { color: var(--ink); }
+  .slide.list .foot { color: rgba(11,10,9,.65); }
+  .rows { margin-top: 70px; border-top: 2px solid rgba(11,10,9,.85); }
+  .row { display: flex; align-items: baseline; gap: 36px; padding: 30px 0; border-bottom: 1px solid rgba(11,10,9,.35); }
+  .row i { font-style: normal; font-size: 24px; font-weight: 600; width: 40px; }
+  .row p { font-size: 42px; font-weight: 600; letter-spacing: -0.03em; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  // window.POST is injected by scripts/render.mjs; ?s=N picks the slide (1-based)
+  const PHOTOS = "../assets/photos/";
+  const post = window.POST;
+  const n = +(new URLSearchParams(location.search).get("s") || 1);
+  const s = post.slides[n - 1];
+  const total = post.slides.length;
+
+  const esc = t => t.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  // markup: "|" = line break, *text* = Instrument Serif italic accent
+  // Czech typography: a one-letter word never ends a line
+  const md = t => esc(t || "").replace(/(^|[\s|(„])([vzksouaiVZKSOUAI])\s+/g, "$1$2\u00a0").replace(/\*([^*]+)\*/g, "<em>$1</em>").split("|").join("<br>");
+  const pad = i => String(i).padStart(2, "0");
+
+  const photo = (p, full) => p ? `<div class="ph" style="background-image:url('${PHOTOS}${p}')${s.pos ? `;background-position:${s.pos}` : ""}"></div><div class="tint"></div><div class="shade ${full ? "full" : ""}"></div>` : "";
+  const topbar = `<div class="top"><span class="logo"><img src="../assets/logo-eshopscope-white.webp" alt="EshopScope"></span><span>${n === 1 ? "Swipe →" : esc(post.label || "")}</span></div>`;
+  const foot = `<div class="foot"><span><b>Téma</b>${esc(post.topicShort || "")}</span><span><b>${n === total ? "EshopScope" : "Ulož si to"}</b>${n === total ? "Weby a UX" : "ať ho najdeš"}</span><span class="n">${pad(n)} / ${pad(total)}</span></div>`;
+
+  const T = {
+    cover: () => `${photo(s.photo)}<div class="content"><h1 class="h">${md(s.title)}</h1>${s.body ? `<p class="body">${md(s.body)}</p>` : ""}</div>`,
+    statement: () => `${photo(s.photo, true)}<div class="content mid"><p class="st">${md(s.text)}</p></div>`,
+    section: () => `${photo(s.photo)}<div class="content">${s.tag ? `<div class="tag">${esc(s.tag)}</div>` : ""}<h2 class="h sm">${md(s.title)}</h2>${s.body ? `<p class="body">${md(s.body)}</p>` : ""}</div>`,
+    font: () => `${photo(s.photo, true)}<div class="spec"><div class="aa" style="font-family:'${s.family}';${s.style || ""}">Aa</div><div class="meta">${esc(s.tag)}</div></div>
+      <div class="content"><h2 class="h sm" style="font-family:'${s.family}';text-transform:none;letter-spacing:-0.03em;${s.style || ""}">${esc(s.family)}</h2><p class="body">${md(s.body)}</p></div>`,
+    list: () => `<div class="content mid" style="justify-content:center"><h2 class="h sm">${md(s.title)}</h2><div class="rows">${s.items.map((it, i) => `<div class="row"><i>${pad(i + 1)}</i><p>${md(it)}</p></div>`).join("")}</div></div>`,
+    cta: () => `${photo(s.photo)}<div class="content"><h2 class="h sm">${md(s.title)}</h2>${s.body ? `<p class="body">${md(s.body)}</p>` : ""}</div>`,
+  };
+
+  const el = document.createElement("section");
+  el.className = "slide " + s.type + (s.type === "list" ? " dark" : "");
+  el.innerHTML = T[s.type]() + topbar + foot;
+  document.getElementById("root").appendChild(el);
+
+  // optical left alignment: cancel each line's left side bearing so all text shares one edge
+  document.fonts.ready.then(() => {
+    const ctx = document.createElement("canvas").getContext("2d");
+    el.querySelectorAll(".h, .st, .body, .row p, .aa").forEach(t => {
+      t.innerHTML = t.innerHTML.split(/<br\s*\/?>/i).map(l => `<span class="ln">${l || "&nbsp;"}</span>`).join("");
+      t.querySelectorAll(".ln").forEach(ln => {
+        const walker = document.createTreeWalker(ln, NodeFilter.SHOW_TEXT);
+        let node; while ((node = walker.nextNode()) && !node.textContent.trim());
+        if (!node) return;
+        const cs = getComputedStyle(node.parentElement);
+        const ch = node.textContent.trim()[0];
+        ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+        const c = cs.textTransform === "uppercase" ? ch.toUpperCase() : ch;
+        ln.style.marginLeft = ctx.measureText(c).actualBoundingBoxLeft + "px";
+      });
+    });
+    document.body.dataset.ready = "1";
+  });
+</script>
+</body>
+</html>

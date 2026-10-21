@@ -1,0 +1,14 @@
+{
+  "name": "eshopscope-ig-autopilot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "node scripts/render.mjs",
+    "preview": "node scripts/telegram.mjs preview",
+    "publish:due": "node scripts/publish.mjs --due",
+    "photos": "node scripts/photos.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "23.11.1"
+  }
+}

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>EshopScope poster</title>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+  :root { --m: 80px; --w: 920px; }
+  /* palettes: c1 = signal colour, c2 = type colour on c1, paper, dark */
+  .p-riso   { --c1: #F03A1F; --c2: #1F4FE0; --paper: #F3EEE4; --dark: #0F1020; --duo-lo: #10195E; --duo-hi: #FF4A2A; }
+  .p-lime   { --c1: #D6FF3A; --c2: #4E5357; --paper: #F2F2EC; --dark: #0E0F10; --duo-lo: #1B1E21; --duo-hi: #D6FF3A; }
+  .p-orange { --c1: #FF6A1A; --c2: #120E0B; --paper: #F4EFE7; --dark: #120E0B; --duo-lo: #1A0F08; --duo-hi: #FF8A3D; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1350px; overflow: hidden; background: #000; }
+  #root { position: fixed; inset: 0; }
+  .slide { position: absolute; inset: 0; overflow: hidden; font-family: "Inter", sans-serif; color: var(--paper); background: var(--dark); }
+
+  /* photo: natural, or two-colour risograph duotone */
+  .ph { position: absolute; inset: 0; overflow: hidden; }
+  .ph img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.95) contrast(1.05); }
+  .ph.duo { background: var(--duo-hi); }
+  .ph.duo img { filter: grayscale(1) contrast(1.2) brightness(1.3); mix-blend-mode: multiply; }
+  .ph.duo::after { content: ""; position: absolute; inset: 0; background: var(--duo-lo); mix-blend-mode: lighten; }
+  .slide.section .ph::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 220px; z-index: 2; background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,0)); }
+  .shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,0) 65%, rgba(0,0,0,.28) 100%); }
+
+  /* heavy print grain */
+  .slide::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 9; opacity: .22; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+
+  /* corner metadata, like print posters */
+  .meta { position: absolute; left: var(--m); right: var(--m); z-index: 5; display: grid; grid-template-columns: 300px 1fr auto;
+          font-family: "Space Mono", monospace; font-size: 17px; line-height: 1.35; text-transform: uppercase; letter-spacing: .02em; }
+  .meta.top { top: 60px; } .meta.bot { bottom: 56px; align-items: end; }
+  .meta .r { text-align: right; }
+  .logo { position: relative; display: block; width: 214px; height: 15px; overflow: hidden; margin-top: 3px; }
+  .logo img { position: absolute; left: -12.84px; top: -32.64px; width: 240px; height: 80px; }
+  .ink .logo img { filter: brightness(0); }
+  .ink .meta { color: var(--c2); }
+  .bars { width: 120px; height: 34px; background: repeating-linear-gradient(90deg, currentColor 0 2px, transparent 2px 5px, currentColor 5px 6px, transparent 6px 9px, currentColor 9px 13px, transparent 13px 15px); }
+
+  /* hero type: each line is stretched to the full text width */
+  .hero { position: absolute; left: var(--m); width: var(--w); z-index: 4; }
+  .hero .ln { display: block; white-space: nowrap; font-family: "Archivo"; font-stretch: 125%; font-weight: 800; text-transform: uppercase;
+              letter-spacing: -0.035em; line-height: .86; }
+  .hero em { font-family: "Fraunces"; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -0.03em;
+             font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1; }
+  .hero .ln.serif { line-height: .95; }
+  .sub { position: absolute; left: var(--m); width: 720px; z-index: 4; font-size: 30px; line-height: 1.38; text-wrap: pretty; }
+
+  /* statement: type-only poster on the signal colour */
+  .slide.statement { background: var(--c1); color: var(--c2); }
+  .say { position: absolute; left: var(--m); width: var(--w); top: 190px; z-index: 4;
+         font-family: "Archivo"; font-weight: 700; font-size: 108px; line-height: .94; letter-spacing: -0.045em; text-wrap: pretty; }
+  .say em { font-family: "Fraunces"; font-style: italic; font-weight: 400; letter-spacing: -0.03em; font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 1; }
+
+  /* section: photo above, paper panel below, giant italic number on the seam */
+  .slide.section { background: var(--paper); color: var(--dark); }
+  .slide.section .ph { bottom: 560px; }
+  .num { position: absolute; left: var(--m); top: 560px; z-index: 4; font-family: "Fraunces"; font-style: italic; font-weight: 300;
+         font-size: 300px; line-height: 1; color: var(--c1); letter-spacing: -0.04em; font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1; }
+  .p-lime .num { color: var(--c1); -webkit-text-stroke: 3px #1B1E21; paint-order: stroke fill; }
+  .ttl { position: absolute; left: var(--m); width: var(--w); top: 906px; z-index: 4; font-family: "Archivo"; font-stretch: 112%; font-weight: 800;
+         text-transform: uppercase; font-size: 70px; line-height: .92; letter-spacing: -0.035em; }
+  .slide.section .sub { top: 1084px; color: rgba(0,0,0,.72); font-size: 29px; }
+  .kick { position: absolute; left: var(--m); top: 866px; z-index: 4; font-family: "Space Mono"; font-size: 17px; text-transform: uppercase; letter-spacing: .02em; }
+  .slide.section .meta.bot { color: var(--dark); }
+  .slide.section .meta.bot .logo img { filter: brightness(0); }
+
+  /* code / prompt card */
+  .slide.code { background: var(--dark); }
+  .slide.code .ttl { top: 200px; color: var(--paper); }
+  .card { position: absolute; left: var(--m); width: var(--w); top: 470px; z-index: 4; background: var(--c1); color: var(--c2); border-radius: 6px;
+          padding: 44px 48px; font-family: "Space Mono"; font-size: 31px; line-height: 1.45; }
+  .card .lbl { font-size: 17px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 22px; opacity: .8; }
+  .slide.code .sub { top: auto; bottom: 180px; color: rgba(255,255,255,.75); }
+
+  /* list on the signal colour */
+  .slide.list { background: var(--c1); color: var(--c2); }
+  .rows { position: absolute; left: var(--m); width: var(--w); top: 560px; z-index: 4; border-top: 3px solid currentColor; }
+  .row { display: flex; align-items: baseline; gap: 34px; padding: 22px 0; border-bottom: 1.5px solid currentColor; }
+  .row i { font-style: normal; font-family: "Space Mono"; font-size: 20px; width: 40px; }
+  .row p { font-family: "Archivo"; font-weight: 700; font-size: 44px; letter-spacing: -0.035em; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  // window.POST is injected by scripts/render.mjs; ?s=N picks the slide (1-based)
+  const PHOTOS = "../assets/photos/";
+  const post = window.POST;
+  const n = +(new URLSearchParams(location.search).get("s") || 1);
+  const s = post.slides[n - 1];
+  const total = post.slides.length;
+
+  const esc = t => t.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  // markup: "|" = line break, *text* = Fraunces italic; a one-letter Czech word never ends a line
+  const md = t => esc(t || "").replace(/(^|[\s|(„])([vzksouaiVZKSOUAI])\s+/g, "$1$2 ").replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  const lines = t => md(t).split("|");
+  const pad = i => String(i).padStart(2, "0");
+
+  const photo = p => p ? `<div class="ph ${post.photoMode === "duo" ? "duo" : ""}"><img src="${PHOTOS}${p}"></div>` : "";
+  const metaTop = `<div class="meta top"><span class="logo"><img src="../assets/logo-eshopscope-white.webp" alt="EshopScope"></span><span>Nº ${esc(post.issue || "001")} — ${esc(post.label || "")}</span><span class="r">${pad(n)}/${pad(total)}</span></div>`;
+  const metaBot = `<div class="meta bot"><span>EshopScope ©2026<br>Weby · UX · Animace</span><span>${n === 1 ? "Swipe →" : n === total ? "Nový web?<br>Napiš do DM" : "Ulož si to,<br>ať to najdeš"}</span><span class="bars"></span></div>`;
+  const hero = (t, top) => `<div class="hero" data-fit style="${top}">${lines(t).map(l => `<span class="ln${/^<em>[^<]*<\/em>$/.test(l.trim()) ? " serif" : ""}">${l}</span>`).join("")}</div>`;
+
+  const T = {
+    cover: () => `${photo(s.photo)}<div class="shade"></div>${hero(s.title, "bottom:300px")}${s.body ? `<p class="sub" style="bottom:170px">${md(s.body)}</p>` : ""}`,
+    statement: () => `<p class="say">${md(s.text).split("|").join("<br>")}</p>`,
+    section: () => `${photo(s.photo)}<div class="kick">${esc(s.kicker || "")}</div><div class="num">${esc(s.num)}</div><h2 class="ttl">${lines(s.title).join("<br>")}</h2><p class="sub">${md(s.body)}</p>`,
+    code: () => `<h2 class="ttl">${lines(s.title).join("<br>")}</h2><div class="card"><div class="lbl">${esc(s.label || "Prompt")}</div>${esc(s.code)}</div>${s.body ? `<p class="sub">${md(s.body)}</p>` : ""}`,
+    list: () => `${hero(s.title, "top:200px")}<div class="rows">${s.items.map((it, i) => `<div class="row"><i>${pad(i + 1)}</i><p>${md(it)}</p></div>`).join("")}</div>`,
+    cta: () => `${photo(s.photo)}<div class="shade"></div>${hero(s.title, "bottom:300px")}${s.body ? `<p class="sub" style="bottom:190px">${md(s.body)}</p>` : ""}`,
+  };
+
+  const el = document.createElement("section");
+  const ink = ["statement", "list"].includes(s.type);
+  el.className = `slide ${s.type} p-${post.palette || "orange"}${ink ? " ink" : ""}`;
+  el.innerHTML = T[s.type]() + metaTop + metaBot;
+  document.getElementById("root").appendChild(el);
+
+  document.fonts.ready.then(() => {
+    // stretch every hero line to the full text width (poster look), capped so short words don't explode
+    el.querySelectorAll("[data-fit] .ln").forEach(ln => {
+      ln.style.display = "inline-block";
+      ln.style.fontSize = "100px";
+      const w = ln.getBoundingClientRect().width;
+      ln.style.fontSize = Math.min(100 * 920 / w, +(s.max || (s.type === "list" ? 170 : 260))) + "px";
+      ln.style.display = "";
+    });
+
+    // list rows sit below the fitted headline
+    const hero = el.querySelector(".list .hero"), rows = el.querySelector(".rows");
+    if (hero && rows) rows.style.top = hero.getBoundingClientRect().bottom + 70 + "px";
+
+    // optical left alignment: cancel each line's left side bearing so every text starts on one edge
+    const ctx = document.createElement("canvas").getContext("2d");
+    const lineEls = [...el.querySelectorAll(".hero .ln")];
+    el.querySelectorAll(".say, .ttl, .sub, .row p").forEach(t => {
+      t.innerHTML = t.innerHTML.split(/<br\s*\/?>/i).map(l => `<span class="ln2" style="display:block">${l || "&nbsp;"}</span>`).join("");
+      lineEls.push(...t.querySelectorAll(".ln2"));
+    });
+    lineEls.forEach(ln => {
+      const walker = document.createTreeWalker(ln, NodeFilter.SHOW_TEXT);
+      let node; while ((node = walker.nextNode()) && !node.textContent.trim());
+      if (!node) return;
+      const cs = getComputedStyle(node.parentElement);
+      const ch = node.textContent.trim()[0];
+      ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const st = parseFloat(cs.fontStretch) || 100;
+      ctx.fontStretch = st >= 125 ? "expanded" : st >= 112 ? "semi-expanded" : "normal";
+      ln.style.marginLeft = ctx.measureText(cs.textTransform === "uppercase" ? ch.toUpperCase() : ch).actualBoundingBoxLeft + "px";
+    });
+    document.body.dataset.ready = "1";
+  });
+</script>
+</body>
+</html>
