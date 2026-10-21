@@ -28,7 +28,11 @@ Skript sám zjistí, které příspěvky jsou po hodině bez STOP, a ty zveřejn
 
 ## Režim CREATE
 
-Nejdřív spusť i režim PUBLISH (dožene zpožděné příspěvky). Pak vytvoř jeden nový karusel:
+Nejdřív spusť i režim PUBLISH (dožene zpožděné příspěvky).
+
+**Fronta:** když potom v `posts/` zůstává jakýkoli příspěvek se stavem `previewed`, nový **nevytvářej** a skonči. Na zveřejnění už jeden čeká a fronta by jinak rostla.
+
+Jinak vytvoř jeden nový karusel:
 
 1. **Přečti `CONTENT.md` celé.** Je to závazné zadání obsahu i vizuálu.
 2. **Vyber téma.**

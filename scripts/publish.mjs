@@ -71,11 +71,14 @@ async function publish(dir) {
 
 async function due() {
   const root = path.resolve("posts");
-  for (const d of fs.readdirSync(root)) {
-    const dir = path.join("posts", d);
-    if (!fs.existsSync(path.join(dir, "post.json"))) continue;
-    const post = readPost(dir);
-    if (post.status !== "previewed") continue;
+  // oldest preview first, and at most one post goes live per run
+  const queue = fs.readdirSync(root)
+    .map(d => path.join("posts", d))
+    .filter(dir => fs.existsSync(path.join(dir, "post.json")))
+    .map(dir => ({ dir, post: readPost(dir) }))
+    .filter(x => x.post.status === "previewed")
+    .sort((a, b) => a.post.previewAt - b.post.previewAt);
+  for (const { dir, post } of queue) {
     const age = (Date.now() / 1000 - post.previewAt) / 60;
     if (age < REVIEW_MIN - 5) { console.log(`wait ${post.id}: ${Math.round(age)} of ${REVIEW_MIN} min`); continue; }
     if (await stopped(post)) {
@@ -84,7 +87,7 @@ async function due() {
       console.log("stopped", post.id);
       continue;
     }
-    try { await publish(dir); }
+    try { await publish(dir); return; }
     catch (e) {
       post.status = "failed"; post.error = e.message; writePost(dir, post);
       await say(`Zveřejnění selhalo: ${post.topic}\n${e.message}`).catch(() => {});
