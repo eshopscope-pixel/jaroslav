@@ -73,10 +73,10 @@ POSLEDNÍ CTA jedna výzva
 ```
 
 **Výzva je vždy jen jedna.** Střídej ji:
-- **Každý 3. příspěvek:** „Napiš mi do DM slovo UKÁZKA a pošlu ti návrh tvého webu zdarma.“
+- **Nejméně každý 2. příspěvek** vede k zakázce: „Napiš mi do DM slovo UKÁZKA a pošlu ti návrh tvého webu zdarma.“ U AI tutoriálů a zákulisí: „Chceš to mít nastavené i u sebe? Napiš mi do DM.“
 - **Ostatní:** „Ulož si to“, nebo „Pošli to někomu, kdo potřebuje nový web.“
 
-Popisek piš přes skill `ig-caption`: háček v prvním řádku, hledaná slova v textu, 3–5 hashtagů a alt text k titulnímu slidu.
+Popisek piš přes skill `ig-caption`: háček v prvním řádku, hledaná slova v textu, přesně 4 hashtagy a alt text k titulnímu slidu.
 
 ## 7. Vizuál
 
