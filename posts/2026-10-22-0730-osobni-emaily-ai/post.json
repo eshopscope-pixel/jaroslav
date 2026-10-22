@@ -80,8 +80,9 @@
       "body": "Napiš mi do DM a nastavíme to spolu."
     }
   ],
-  "status": "previewed",
+  "status": "stopped",
   "caption": "Posíláš klientům pořád stejný e-mail jen se změněným jménem? Tohle jde líp a nemusíš to psát ručně.\n\nAutomatické e-maily z Gmailu si dnes nastavíš s AI. Claude každému kontaktu napíše krátkou osobní zprávu podle toho, co o něm máš poznamenané.\n\nPostup: zapni dvoufázové ověření, vytvoř si heslo aplikace a nech Claude napsat skript. Ten pak spouští naplánovaná úloha v cloudu, i když máš počítač vypnutý.\n\nHlídej limity. Běžný Gmail pustí nejvýš 500 e-mailů denně. Posílej mnohem méně, jen lidem, kteří tě znají, a vždy s možností odhlášení.\n\nChceš to mít nastavené ve své firmě? Napiš mi do DM.\n\n#automatizace #umelainteligence #emailmarketing #claudeai",
   "alt": "Stůl pokrytý barevnými obálkami s pečetěmi a známkami. Nadpis: Osobní e-maily s Claude. Pod ním: Gmail a AI, které každému kontaktu napíše vlastní zprávu.",
-  "previewAt": 1792647753
+  "previewAt": 1792647753,
+  "stopReason": "Petr: tutoriál není opravdu krok po kroku"
 }
