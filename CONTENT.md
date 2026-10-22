@@ -63,6 +63,17 @@ Střídej je, aby se dva stejné pilíře neopakovaly za sebou.
 
 ## 4. Kde brát nápady
 
+### Hlavní postup (Petr, 22. 10. 2026): vezmi, co je trendy, a udělej to po našem
+
+1. Spusť `node scripts/trending.mjs` a doplň to webovým výzkumem (bod níže).
+2. Vyber příspěvek, který **teď prokazatelně boduje** (vysoké `vsMedian` nebo tisíce lajků) a je **z našich témat**: webdesign, UX a optimalizace e-shopů, doporučení pro weby, AI, AI tutoriály, AI vývoj a nástroje, no-code a webové nástroje. Motivace, lifestyle, móda a zábava se nepočítají.
+3. **Převezmi jeho téma, strukturu a hlavní body**: stejný slib na obalu, stejné pořadí kroků, stejný typ seznamu nebo srovnání. Nic nového nevymýšlej, když funguje originál.
+4. **Napiš to stručně a česky** pro naše čtenáře a zabal to do našeho designu (šablony a reference). Ověř fakta a kroky, protože originál může mít chyby.
+5. Do `proof` ulož odkaz na originál a jeho čísla.
+
+Hranice: převzít téma, strukturu a body je v pořádku. Doslovný překlad celých textů, cizí fotky, grafiky ani loga ale nepřebírej. Texty piš vlastními slovy (stručněji než originál) a fotky ber z našeho zdroje.
+
+
 **Nebuď stereotypní.** Témata střídej a odvaž se: AI nástroje a novinky, návody, mýty, srovnání, prompty ke zkopírování, rozbory chyb, trendy z tohoto týdne.
 
 

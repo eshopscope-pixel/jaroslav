@@ -35,7 +35,7 @@ Nejdřív spusť i režim PUBLISH (dožene zpožděné příspěvky).
 Jinak vytvoř jeden nový karusel:
 
 1. **Přečti `CONTENT.md` celé.** Je to závazné zadání obsahu i vizuálu.
-2. **Vyber téma.** Nejdřív otevři `IDEAS.md`. Když je tam v sekci **Čeká** nějaký Petrův nápad, vezmi nejstarší a postupuj podle něj. Má přednost před vlastním výběrem, jen zachovej střídání palety a šablony. Po vytvoření ho přesuň do sekce **Hotovo**. Když je sekce prázdná, vyber téma sám:
+2. **Vyber téma.** Nejdřív otevři `IDEAS.md`. Když je tam v sekci **Čeká** nějaký Petrův nápad, vezmi nejstarší a postupuj podle něj. Má přednost před vlastním výběrem, jen zachovej střídání palety a šablony. Po vytvoření ho přesuň do sekce **Hotovo**. Když je sekce prázdná, postupuj podle CONTENT.md bod 4 „Hlavní postup“: vezmi příspěvek, který je teď trendy u velkých účtů v našich tématech (`node scripts/trending.mjs`), a udělej ho stručně česky v našem designu. Doplňující kroky:
    - Podívej se na `posts/history.json` a všechny `posts/*/post.json`. Neopakuj téma ani úhel z posledních 30 dní a neopakuj pilíř ani paletu z minulého příspěvku.
    - Najdi, co je **tento týden** v trendu ve webdesignu, UX, AI a technologiích. Použij WebSearch nebo WebFetch: Product Hunt, Awwwards, blogy Figma, Framer, Webflow, Anthropic, OpenAI, Google a technologické zprávy. Trend přelož do praxe pro majitele firem (makléři, finance, developeři, ateliéry, umělci, prémiové e-shopy).
    - Každé číslo nebo novinku podlož zdrojem a ulož ji do `sources`. Bez zdroje to vynech.
