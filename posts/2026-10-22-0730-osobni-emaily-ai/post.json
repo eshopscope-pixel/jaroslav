@@ -1,0 +1,86 @@
+{
+  "id": "2026-10-22-0730-osobni-emaily-ai",
+  "template": "poster",
+  "palette": "lime",
+  "photoMode": "natural",
+  "issue": "008",
+  "label": "AI návod",
+  "topic": "Automatické osobní e-maily z Gmailu s Claude",
+  "pillar": "AI a automatizace pro firmy",
+  "sources": [
+    "https://support.google.com/accounts/answer/185833",
+    "https://support.google.com/mail/answer/22839",
+    "https://code.claude.com/docs/en/routines"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "photo": "2026-10-22-0730-osobni-emaily-ai-1.jpg",
+      "title": "Osobní|e-maily|*s Claude*",
+      "body": "Gmail a AI, které každému kontaktu napíše vlastní zprávu. Návod krok za krokem."
+    },
+    {
+      "type": "statement",
+      "text": "Hromadný e-mail pozná každý. *Osobní zmíní člověka a jeho firmu.*"
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-22-0730-osobni-emaily-ai-3.jpg",
+      "num": "01",
+      "kicker": "Krok",
+      "title": "Zapni dvoufázové|ověření",
+      "body": "Bez něj ti Google heslo aplikace nevytvoří. Zapneš ho v účtu Google v sekci Zabezpečení."
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-22-0730-osobni-emaily-ai-4.jpg",
+      "num": "02",
+      "kicker": "Krok",
+      "title": "Vytvoř heslo|aplikace",
+      "body": "Google ti vygeneruje šestnáctimístný kód. Skript ho použije místo tvého hesla a kdykoli ho můžeš zrušit."
+    },
+    {
+      "type": "code",
+      "title": "Zadej|prompt",
+      "label": "Krok 03 · Prompt pro Claude",
+      "code": "Napiš skript, který načte kontakty z tabulky, každému napíše krátký e-mail podle poznámky u kontaktu a odešle ho přes Gmail. Heslo čti z proměnné prostředí.",
+      "body": "Heslo nikdy nevkládej do promptu ani do kódu."
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-22-0730-osobni-emaily-ai-6.jpg",
+      "num": "04",
+      "kicker": "Krok",
+      "title": "Naplánuj|cloudovou úlohu",
+      "body": "Naplánované úlohy v Claude Code běží v cloudu, i když máš notebook zavřený. Heslo ulož do nastavení prostředí jako tajný údaj."
+    },
+    {
+      "type": "section",
+      "photo": "2026-10-22-0730-osobni-emaily-ai-7.jpg",
+      "num": "05",
+      "kicker": "Limit",
+      "title": "Posílej málo|a postupně",
+      "body": "Gmail povolí 500 e-mailů denně. Zůstaň hluboko pod tím, piš lidem, kteří tě znají, a nabídni odhlášení."
+    },
+    {
+      "type": "list",
+      "title": "Celý|*postup*",
+      "items": [
+        "Dvoufázové ověření",
+        "Heslo aplikace",
+        "Prompt pro Claude",
+        "Naplánovaná úloha",
+        "Nízký denní limit"
+      ]
+    },
+    {
+      "type": "cta",
+      "photo": "2026-10-22-0730-osobni-emaily-ai-9.jpg",
+      "title": "Chceš to|*ve firmě?*",
+      "body": "Napiš mi do DM a nastavíme to spolu."
+    }
+  ],
+  "status": "ready",
+  "caption": "Posíláš klientům pořád stejný e-mail jen se změněným jménem? Tohle jde líp a nemusíš to psát ručně.\n\nAutomatické e-maily z Gmailu si dnes nastavíš s AI. Claude každému kontaktu napíše krátkou osobní zprávu podle toho, co o něm máš poznamenané.\n\nPostup: zapni dvoufázové ověření, vytvoř si heslo aplikace a nech Claude napsat skript. Ten pak spouští naplánovaná úloha v cloudu, i když máš počítač vypnutý.\n\nHlídej limity. Běžný Gmail pustí nejvýš 500 e-mailů denně. Posílej mnohem méně, jen lidem, kteří tě znají, a vždy s možností odhlášení.\n\nChceš to mít nastavené ve své firmě? Napiš mi do DM.\n\n#automatizace #umelainteligence #emailmarketing #claudeai",
+  "alt": "Stůl pokrytý barevnými obálkami s pečetěmi a známkami. Nadpis: Osobní e-maily s Claude. Pod ním: Gmail a AI, které každému kontaktu napíše vlastní zprávu."
+}
