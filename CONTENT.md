@@ -21,6 +21,25 @@ Když něco z toho neplatí, téma zahoď a vyber jiné.
 
 **Špatný příspěvek** je filozofování, které říká všechno a zároveň nic. Patří sem přehnané metafory, kýč, obecné motivační řeči a „pravdy“, které nic nového neřeknou laikovi ani profíkovi.
 
+### 2a. Žádné samozřejmosti (Petr, 22. 10. 2026)
+
+Příklad, který **nesmí** projít: „Stránka z reklamy má slibovat to samé co reklama.“ Je to pravda, ale každý si to domyslí a nikdo si to neuloží ani nepošle.
+
+Než téma vezmeš, odpověz si upřímně:
+- **Uloží si to profík?** Když by si to člověk z oboru neuložil, je to samozřejmost. Zahoď to.
+- **Je tam aspoň jedna věc, kterou čtenář nevěděl?** Konkrétní nástroj, číslo se zdrojem, postup, prompt, nastavení, nečekaný příklad.
+- **Funguje to téma u velkých účtů?** Viz bod 4: bez důkazu, že podobný příspěvek jinde opravdu zabral, téma neber.
+
+### 2b. Tutoriál = doslova krok za krokem
+
+Když příspěvek slibuje návod („Jak…“, „Nastav si…“, „X kroků k…“), musí fungovat **doslova**. Kdo udělá přesně to, co je na slidech, musí dojít k výsledku z titulního slidu. Žádné „nastav cloudovou úlohu“ bez toho, jak se to dělá.
+
+- **Každý krok je jedna konkrétní akce:** kam kliknout (přesný název tlačítka nebo menu), co napsat (přesný text, příkaz nebo prompt ke zkopírování), co se má objevit.
+- **Na začátku předpoklady:** co je potřeba mít (účet, aplikace, tarif zdarma nebo placený).
+- **Na konci ověření:** jak čtenář pozná, že to funguje.
+- **Ověř si to:** každý krok porovnej s oficiální dokumentací nástroje (WebFetch) a zdroj ulož do `sources`. Když si nejsi jistý názvem tlačítka nebo postupem, ten tutoriál nedělej.
+- **Když se to nevejde do 10 slidů, zužuj téma**, dokud se nevejde celé. Lepší úzký návod, který funguje, než široký, který je k ničemu. Třeba „Heslo aplikace v Gmailu ve 4 krocích“ místo „Automatické e-maily s AI“.
+
 ## 3. Pilíře obsahu
 
 Střídej je, aby se dva stejné pilíře neopakovaly za sebou.
@@ -38,7 +57,7 @@ Střídej je, aby se dva stejné pilíře neopakovaly za sebou.
 
 **Nikdy neprozrazuj, co EshopScope automatizuje u sebe.** Automatizace (e-maily, příspěvky, AI agenty) prezentuj vždy **obecně**, jako tip nebo návod pro čtenáře: „Jak si nastavit…“, „Co umí AI agent…“. Nikdy ne „já si nechávám…“, „náš agent píše tyhle příspěvky“ ani „takhle oslovujeme klienty“. Nezmiňuj Jaroslava, Miroslava, Telegram, Petrův Gmail ani to, že tenhle profil nebo jeho e-maily vznikají automaticky.
 
-**Každý příspěvek končí výzvou, která přivádí zákazníky.** Na posledním slidu i v popisku je jedna jasná akce. Nejčastěji: „Napiš mi do DM slovo UKÁZKA a pošlu ti návrh tvého webu zdarma.“ U tutoriálů a tipů může být výzva „Ulož si to“ nebo „Chceš to mít nastavené i u sebe? Napiš mi do DM.“ Jen jedna výzva na příspěvek.
+**Každý příspěvek končí výzvou, která přivádí zákazníky.** Na posledním slidu i v popisku je jedna jasná akce. Nejčastěji: „Napiš mi do DM slovo UKÁZKA a pošlu ti návrh tvého webu zdarma.“ U tutoriálů a tipů může být výzva „Ulož si to“ nebo „Chceš to mít nastavené ve své firmě? Napiš mi do DM.“ Jen jedna výzva na příspěvek.
 
 **U návodů na automatizaci** ukazuj princip a výsledek obecně, nikdy skutečné klíče, hesla, e-mailové adresy ani data.
 
@@ -47,7 +66,9 @@ Střídej je, aby se dva stejné pilíře neopakovaly za sebou.
 **Nebuď stereotypní.** Témata střídej a odvaž se: AI nástroje a novinky, návody, mýty, srovnání, prompty ke zkopírování, rozbory chyb, trendy z tohoto týdne.
 
 
-- Před každým příspěvkem projdi, co je **teď nejvíc v trendu** ve webdesignu, UX, AI a technologiích. Zdroje jsou Instagram, TikTok, X, Product Hunt, Awwwards a blogy nástrojů (Framer, Webflow, Figma, Anthropic, OpenAI).
+- **Ber to, co teď prokazatelně funguje u velkých jmen.** Najdi příspěvky, karusely, vlákna nebo videa velkých tvůrců a firem z webdesignu, UX, AI a byznysu, které mají **výrazně víc lajků, komentářů nebo sdílení než jejich běžné příspěvky**. Zdroje: X (virální vlákna), LinkedIn (top příspěvky), Reddit (r/webdev, r/web_design, r/ChatGPT, r/ClaudeAI, r/Entrepreneur: nejlepší za týden), YouTube (nejsledovanější za týden), Product Hunt (top dne a týdne), články typu „most viral posts this week“ a veřejně dostupné náhledy instagramových a tiktokových účtů.
+- **Do `post.json` ulož důkaz** (`proof`): odkaz na 1–3 příspěvky, které téma nebo formát potvrzují, a jejich čísla (lajky, sdílení, zhlédnutí). Bez důkazu téma neber, s výjimkou nápadů od Petra z `IDEAS.md`.
+- **Přebírej témata a formáty, ne texty.** Úspěšné téma, strukturu, úhel nebo formát (seznam, srovnání, prompt ke zkopírování, před a po) klidně převezmi. Text a grafiku ale napiš a udělej po svém, v češtině a pro náš okruh lidí. Doslovné kopírování cizího obsahu porušuje autorská práva a Instagram ho umí poznat a omezit dosah.
 - Trend vezmi a **přelož do praxe pro náš okruh lidí**: co z toho má makléř, ateliér nebo e-shop.
 - Zkontroluj soubor `posts/history.json`. **Stejné téma ani stejný úhel neopakuj dřív než za 30 dní.**
 - **Fakta ověřuj.** Číslo, statistiku nebo novinku dej do příspěvku jen tehdy, když máš zdroj. Zdroj zapiš do `post.json` (`sources`). Bez zdroje číslo vynech, **nikdy si ho nevymýšlej.**
@@ -125,3 +146,5 @@ Petr chce osobitější styl, ne generický. Šablona `templates/poster.html`, r
 - [ ] Ve screenshotech webů není nic dopsané.
 - [ ] Jedna výzva, popisek prošel `ig-caption` linterem bez FAIL.
 - [ ] Téma není v `posts/history.json` za posledních 30 dní.
+- [ ] Není to samozřejmost (bod 2a) a v `post.json` je `proof` (bod 4), pokud nejde o nápad z `IDEAS.md`.
+- [ ] Tutoriál jde projít doslova krok za krokem a každý krok je ověřený v dokumentaci (bod 2b).
